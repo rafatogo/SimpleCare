@@ -27,7 +27,7 @@ with open('imported text file', 'r') as f:
     for line in txt:
         if "Plan Type: " in line:
             planTypeLocation = line.index("Plan Type:")
-            planType = line[planTypeLocation-1]
+            planType = line[planTypeLocation: -1]
         else:
             pass
 with open('imported text file', 'r') as f:
@@ -36,7 +36,7 @@ line_no = data.index("Plan Type:")
 while text file != "":
     if "deductible?" in text file:
         deductibleLocation = line.index("deductible?")
-        deductible = line[deductibleLocation+1]
+        deductible = line[deductibleLocation: +1]
     else:
         pass
 print line(s)
