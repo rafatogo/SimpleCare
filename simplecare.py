@@ -34,7 +34,10 @@ line_no = data.index("Plan Type:")
 while text file != "":
     if "deductible?" in text file:
         deductibleLocation = line.index("deductible?")
+
         dataList[2] = line[deductibleLocation: +1]
+
+
     else:
         pass
 """
