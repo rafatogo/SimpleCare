@@ -14,20 +14,18 @@ Created on Sat Sep 21 12:03:57 2019
     #if search phrase in textfile:
         #print line(s) 
 """
-planName = ""
-planType = ""
-deductible = 0
+dataList = []
 txt = imported text file
 with open('imported text file', 'r') as f:
     for line in txt:
         if "Plan Name" in txt:
-            planName = (line(s))
+            dataList[0] = (line(s))
         else:
             pass
     for line in txt:
         if "Plan Type: " in line:
             planTypeLocation = line.index("Plan Type:")
-            planType = line[planTypeLocation: -1]
+            dataList[1] = line[planTypeLocation: -1]
         else:
             pass
 with open('imported text file', 'r') as f:
@@ -36,10 +34,9 @@ line_no = data.index("Plan Type:")
 while text file != "":
     if "deductible?" in text file:
         deductibleLocation = line.index("deductible?")
-        deductible = line[deductibleLocation: +1]
+        dataList[2] = line[deductibleLocation: +1]
     else:
         pass
-print line(s)
 """
 #close file
 
