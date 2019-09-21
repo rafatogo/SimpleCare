@@ -36,7 +36,7 @@ line_no = data.index("Plan Type:")
 while text file != "":
     if "deductible?" in text file:
         deductibleLocation = line.index("deductible?")
-        deductible = line[deductibleLocation: +1]
+        deductible = line[deductibleLocation: -1]
     else:
         pass
 print line(s)
