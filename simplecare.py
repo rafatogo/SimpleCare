@@ -77,6 +77,14 @@ for line in allLines:
     elif "Copayments" in line:
         copayLocation = line.index("Copayments")
         dataList["Copayment"] = line[copayLocation: +8]
+    elif "NOT covered" in line:
+        notCoveredList = []
+        ncLocation = line.index("NOT Cover")
+        endLocation = line.index("Other Covered Services")
+        for l in allLines[ncLocation-1, endLocation]
+            l.lstrip('• ')
+            notCoveredList.append(l)
+        dataList["NOT covered"] = notCoveredList
     else:
         pass
     count += 1
