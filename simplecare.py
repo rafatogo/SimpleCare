@@ -24,7 +24,7 @@ dataList["Plan Name"] = s[:-1]
 
 dataList["Plan Type"] = ""
 
-for line in txt:
+for line in allLines:
     if "Plan Type: " in line:
         string = str(line)
         strList = line.split(' ')
@@ -33,6 +33,9 @@ for line in txt:
     elif "deductible?" in line:
         deductibleLocation = line.index("deductible?")
         dataList["deductible"] = line[deductibleLocation: +1]
+    elif "limit for this plan?" in line:
+        oopLimitLocation = line.index("limit for this plan?")
+        dataList["Out Of Pocket Limit"] = line[oopLimitLocation: +1]
     else:
         pass
 
