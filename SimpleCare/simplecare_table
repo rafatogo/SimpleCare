@@ -3,3 +3,5 @@ dataList = dataExtract('cigna.txt')
 import pandas as pd
 
 table = pd.DataFrame(dataList.items(), columns = ["key", "value"])
+
+table.to_html()
