@@ -57,6 +57,10 @@ for line in allLines:
         
     elif "limit for this plan?" in line:
         outOfPocketLocation = count+2
+        
+    elif "% coinsurance" in line:
+        coinsuranceIndex = line.index("% coinsurance")
+
     
     elif "Copayments" in line:
         copayLocation = line.index("Copayments")
