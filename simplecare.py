@@ -16,16 +16,16 @@ Created on Sat Sep 21 12:03:57 2019
 """
 dataList = {}
 txt = imported text file
+allLines = txt.readLine()
+s = allLines[2]
+s.strip(": ")
+dataList["Plan Name"] = s
 with open('imported text file', 'r') as f:
     for line in txt:
-        if "Plan Name" in txt:
-            dataList["Plan Name"] = (line(s))
-        else:
-            pass
-    for line in txt:
         if "Plan Type: " in line:
-            planTypeLocation = line.index("Plan Type:")
-            dataList["Plan Type"] = line[planTypeLocation: -1]
+            string = str(line)
+            strList = string.split()
+            dataList["Plan Type"] = strList(len(strList)-1)
         else:
             pass
 with open('imported text file', 'r') as f:
@@ -39,6 +39,7 @@ while text file != "":
 
     else:
         pass
+
 """
 #close file
 
