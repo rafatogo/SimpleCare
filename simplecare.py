@@ -45,19 +45,19 @@ def dataList(fileName):
             planType = strList[-1]
             if planType == "HMO":
                 dataList["Do I have to stay in network?"] = "Yes"
-                dataList["Do I need a referal to see a specialist?"] = "Yes"
+                dataList["Do I need a referral to see a specialist?"] = "Yes"
             elif planType == "PPO":
                 dataList["Do I have to stay in network?"] = "No"
-                dataList["Do I need a referal to see a specialist?"] = "No"
+                dataList["Do I need a referral to see a specialist?"] = "No"
             elif planType == "EPO":
                 dataList["Do I have to stay in network?"] = "Yes"
-                dataList["Do I need a referal to see a specialist?"] = "No"
+                dataList["Do I need a referral to see a specialist?"] = "No"
             elif planType == "POS":
                 dataList["Do I have to stay in network?"] = "No"
-                dataList["Do I need a referal to see a specialist?"] = "Yes"
+                dataList["Do I need a referral to see a specialist?"] = "Yes"
             else:
                 dataList["Do I have to stay in network?"] = "Yes"
-                dataList["Do I need a referal to see a specialist?"] = "Yes"
+                dataList["Do I need a referral to see a specialist?"] = "Yes"
         
         elif count==deductibleLocation:
             dataList["Deductible"] = line[:-1]
