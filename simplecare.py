@@ -14,7 +14,6 @@ Created on Sat Sep 21 12:03:57 2019
     #if search phrase in textfile:
         #print line(s) 
 """
-
 dataList = {}
 txt = open('Flex_Bronze.txt', 'r')
 allLines = txt.readlines()
@@ -25,6 +24,19 @@ deductibleFound = False
 deductibleLocation = -1
 outOfPocketLocation = -1
 count = 0
+
+def calcPremium(deductible):
+    """
+    calculates the premium relative to deductible
+    """
+    deductible = int((dataList["Deductible"].split()[0][1:]).replace(',', ''))
+    if deductible < 700:
+        dataList["Premium Level"] = "Higher Premium Level"
+    elif deductible > 1400:
+        dataList["Premium Level"] = "Lower Premium Level"
+    else:
+        dataList["Premium Level"] = "Medium Premium Level"
+    
 for line in allLines:
     if "Plan Type" in line:
         strList = line.split()
@@ -68,6 +80,7 @@ for line in allLines:
     else:
         pass
     count += 1
+calcPremium (dataList["Deductible"])
     
 """
 #close file
