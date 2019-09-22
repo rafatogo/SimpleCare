@@ -13,7 +13,7 @@ Created on Sat Sep 21 12:03:57 2019
     #if search phrase in textfile:
         #print line(s) 
 """
-def dataList(fileName):
+def dataExtract(fileName):
     dataList = {}
     txt = open(fileName, encoding = "utf8")
     allLines = txt.readlines()
