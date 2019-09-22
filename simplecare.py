@@ -21,18 +21,22 @@ allLines = txt.readlines()
 s = allLines[1]
 s = s.strip(": ")
 dataList["Plan Name"] = s[:-1]
+deductibleFound = False
+deductibleLocation = -1
 
-dataList["Plan Type"] = ""
-
+count = 0
 for line in allLines:
-    if "Plan Type: " in line:
-        string = str(line)
-        strList = line.split(' ')
+    if "Plan Type" in line:
+        strList = line.split()
         dataList["Plan Type"] = strList[-1]
+        
+    elif count==deductibleLocation:
+        dataList["Deductible"] = line[:-1]
     
-    elif "deductible?" in line:
-        deductibleLocation = line.index("deductible?")
-        dataList["deductible"] = line[deductibleLocation: +1]
+    elif (not deductibleFound) and "deductible?" in line:
+        deductibleLocation = count+2
+        deductibleFound = True
+    count+=1
     elif "limit for this plan?" in line:
         oopLimitLocation = line.index("limit for this plan?")
         dataList["Out Of Pocket Limit"] = line[oopLimitLocation: +1]
