@@ -92,3 +92,4 @@ calcPremium (dataList["Deductible"])
 #4. out of pocket limit
 #5. copay
 #6. MA's algo --> premium
+#7. NOT covered
