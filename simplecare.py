@@ -85,7 +85,7 @@ for line in allLines:
         copayLocation = count + 2
     
     elif "NOT Cover" in line:
-        notCoveredLine = count
+        notCoveredLine = count + 1
         
     elif "Other Covered Services" in line:
         coveredLine = count
@@ -96,9 +96,9 @@ for line in allLines:
     count += 1
     
 notCoveredList = []
-for l in allLines[notCoveredLine + 1, coveredLine]:
-    l.lstrip('• ')
-    notCoveredList.append(l)
+lines = allLines[notCoveredLine:coveredLine]
+for line in lines:
+    notCoveredList.append(line[2:-1])
 dataList["NOT covered"] = notCoveredList
     
 calcPremium (dataList["Deductible"])
