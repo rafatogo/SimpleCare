@@ -1,0 +1,5 @@
+from simplecare import dataExtract
+dataList = dataExtract('cigna.txt')
+import pandas as pd
+
+table = pd.DataFrame(dataList.items(), columns = ["key", "value"])
