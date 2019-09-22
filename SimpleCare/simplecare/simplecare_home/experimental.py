@@ -1,2 +1,0 @@
-def blahblah():
-    return True
