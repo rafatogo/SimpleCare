@@ -23,44 +23,48 @@ s = s.strip(": ")
 dataList["Plan Name"] = s[:-1]
 deductibleFound = False
 deductibleLocation = -1
-
+outOfPocketLocation = -1
 count = 0
 for line in allLines:
     if "Plan Type" in line:
         strList = line.split()
         planType = strList[-1]
-        if planType == "HMO"
+        if planType == "HMO":
            dataList["Do I have to stay in network?"] = "Yes"
            dataList["Do I need a referal to see a specialist?"] = "Yes"
-        elif planType == "PPO"
+        elif planType == "PPO":
             dataList["Do I have to stay in network?"] = "No"
             dataList["Do I need a referal to see a specialist?"] = "No"
-        elif planType == "EPO"
+        elif planType == "EPO":
             dataList["Do I have to stay in network?"] = "Yes"
             dataList["Do I need a referal to see a specialist?"] = "No"
-        elif planType == "POS"
+        elif planType == "POS":
             dataList["Do I have to stay in network?"] = "No"
             dataList["Do I need a referal to see a specialist?"] = "Yes"
-        else
+        else:
             dataList["Do I have to stay in network?"] = "Yes"
             dataList["Do I need a referal to see a specialist?"] = "Yes"
         
     elif count==deductibleLocation:
         dataList["Deductible"] = line[:-1]
+        
+    elif count==outOfPocketLocation:
+        dataList["OOP"] = line[:-1]
     
     elif (not deductibleFound) and "deductible?" in line:
         deductibleLocation = count+2
         deductibleFound = True
-    count+=1
+        
     elif "limit for this plan?" in line:
-        oopLimitLocation = line.index("limit for this plan?")
-        dataList["Out Of Pocket Limit"] = line[oopLimitLocation: +1]
+        outOfPocketLocation = count+2
+    
     elif "Copayments" in line:
         copayLocation = line.index("Copayments")
         dataList["Copayment"] = line[copayLocation: +8]
     else:
         pass
-
+    count += 1
+    
 """
 #close file
 
